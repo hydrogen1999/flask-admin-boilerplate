@@ -18,8 +18,8 @@ def checkloginpassword():
     username = request.form["username"]
     check = db.users.find_one({"username": username})
     password = request.form["password"]
-    hashpassword = getHashed(password)
-    if hashpassword == check["password"]:
+    # hashpassword = getHashed(password)
+    if password == check["password"]:
         sendmail(subject="Login on Flask Admin Boilerplate", sender="Flask Admin Boilerplate", recipient=check["email"], body="You successfully logged in on Flask Admin Boilerplate")
         session["username"] = username
         return "correct"

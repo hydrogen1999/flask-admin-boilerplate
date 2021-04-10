@@ -1,13 +1,9 @@
 from pymongo import MongoClient
 import configuration
 
-connection_params = configuration.connection_params
+CONNECTION_STRING = "mongodb+srv://hydrogen1999:25121999thinh@dss.kvv08.mongodb.net/dss?retryWrites=true&w=majority"
 
 #connect to mongodb
-mongoconnection = MongoClient(
-    'mongodb://{user}:{password}@{host}:'
-    '{port}/{namespace}?retryWrites=false'.format(**connection_params)
-)
+mongoconnection = MongoClient(CONNECTION_STRING)
 
-
-db = mongoconnection.databasename
+db = mongoconnection.dss
