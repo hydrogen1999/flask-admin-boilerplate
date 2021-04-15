@@ -40,8 +40,8 @@ def registerUser():
     values = [request.form[k] for k in request.form]
     data = dict(zip(fields, values))
     user_data = json.loads(json_util.dumps(data))
-    user_data["password"] = getHashed(user_data["password"])
-    user_data["confirmpassword"] = getHashed(user_data["confirmpassword"])
+    # user_data["password"] = getHashed(user_data["password"])
+    # user_data["confirmpassword"] = getHashed(user_data["confirmpassword"])
     db.users.insert(user_data)
     sendmail(subject="Registration for Flask Admin Boilerplate", sender="Flask Admin Boilerplate", recipient=user_data["email"], body="You successfully registered on Flask Admin Boilerplate")
     print("Done")
