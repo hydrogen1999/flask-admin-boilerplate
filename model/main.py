@@ -12,6 +12,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.svm import SVR
 from sklearn.ensemble import VotingRegressor
+from flask import render_template
 
 df=pd.read_csv('order.csv')
 df['date'] =pd.to_datetime(df.date)
@@ -24,4 +25,4 @@ def totalYear():
 def lastYear():
     lastYear=totalYear().tail(1)
     last_year=last_Year.iloc[0]['total']
-    return last_year
+    return render_template("index.html0",last_year)
