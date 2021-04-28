@@ -14,7 +14,7 @@ from sklearn.svm import SVR
 from sklearn.ensemble import VotingRegressor
 from flask import render_template
 
-df=pd.read_csv('order.csv')
+df=pd.read_csv('data\order.csv')
 df['date'] =pd.to_datetime(df.date)
 df['month_year'] = pd.to_datetime(df['date']).dt.to_period('M')
 
