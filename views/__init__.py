@@ -8,6 +8,8 @@ def home():
         return render_template('index.html')
     else:
         return render_template('login.html')
+def viewLastYear():
+    return lastYear()
 
 # Register new user
 @app.route('/register', methods=["GET", "POST"])
