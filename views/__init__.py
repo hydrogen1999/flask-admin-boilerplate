@@ -8,6 +8,8 @@ def home():
         return render_template('index.html')
     else:
         return render_template('login.html')
+
+@app.route('/', methods=["GET"])
 def viewLastYear():
     return lastYear()
 

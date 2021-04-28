@@ -25,5 +25,4 @@ def totalYear():
 def lastYear():
     lastYear=totalYear().tail(1)
     last_year=last_Year.iloc[0]['total']
-    print(last_year)
     return render_template("index.html",last_year=last_year)
