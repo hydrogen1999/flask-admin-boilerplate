@@ -1,14 +1,14 @@
 from flask import render_template, request, redirect, url_for, session
 from app import app
 from model import *
+from model.main import *
 
 @app.route('/', methods=["GET"])
 def home():
     if "username" in session:
-        return render_template('index.html')
+        return render_template('index.html', last_year=lastYear(), last_month=lastMonth())
     else:
         return render_template('login.html')
-    return render_template("index.html",last_year=lastYear())
 
 
 # Register new user
