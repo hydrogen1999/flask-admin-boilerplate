@@ -6,7 +6,7 @@ from model.main import *
 @app.route('/', methods=["GET"])
 def home():
     if "username" in session:
-        return render_template('index.html', last_year=lastYear(), last_month=lastMonth())
+        return render_template('index.html', last_year=lastYear(), last_month=lastMonth(),percent=percentageMethod())
     else:
         return render_template('login.html')
 

@@ -113,3 +113,8 @@ def lastDateSale():
     last_date_sale = lastDateSale.iloc[0]['quantity']
     return last_date_sale
 
+def percentageMethod():
+    df9=df[['method']]
+    (df9['method'].value_counts()/df9['method'].count())*100
+    return percent
+
