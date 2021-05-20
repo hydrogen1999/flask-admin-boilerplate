@@ -5,7 +5,7 @@ Chart.defaults.global.defaultFontColor = '#858796';
 // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
 var jsonData = $.ajax({
-  url: 'data.json',
+  url: 'percent.json',
   dataType: 'json',
 }).done(function(results) {
   //get values that only needed
