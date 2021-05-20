@@ -11,6 +11,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.svm import SVR
 from sklearn.ensemble import VotingRegressor
+import statsmodels.api as sm
 
 df = pd.read_csv('data\order.csv')
 df['date'] = pd.to_datetime(df.date)
@@ -116,5 +117,6 @@ def lastDateSale():
 def percentageMethod():
     df9=df[['method']]
     percent=(df9['method'].value_counts()/df9['method'].count())*100
+    percent.to_json('percent.json', orient='split')
     return percent
 
