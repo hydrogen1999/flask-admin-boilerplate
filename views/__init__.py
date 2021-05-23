@@ -2,15 +2,26 @@ from flask import render_template, request, redirect, url_for, session
 from app import app
 from model import *
 from model.main import *
+import json
+import pandas as pd
+import numpy as np
 
 @app.route('/', methods=["GET"])
 def home():
+    percent=percentageMethod()
+    total_month=totalMonth()
+    file1=pd.read_json('total_month.json',orient='index')
+    month_index=np.array(file1['month_year'])
+    month_data=np.array(file1['total'])
+    with open('percent.json') as f:
+        file2 = json.load(f)
+    labels=file2['index']
+    data=file2['data']
     if "username" in session:
-        return render_template('index.html', last_year=lastYear(), last_month=lastMonth(),percent=percentageMethod())
+        return render_template('index.html', last_year=lastYear(), last_month=lastMonth(),dataset=data, label=labels, percent=percent,
+        month_index=month_index, month_data=month_data)
     else:
         return render_template('login.html')
-
-
 # Register new user
 @app.route('/register', methods=["GET", "POST"])
 def register():

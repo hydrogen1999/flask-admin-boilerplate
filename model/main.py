@@ -12,6 +12,7 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.svm import SVR
 from sklearn.ensemble import VotingRegressor
 import statsmodels.api as sm
+import json
 
 df = pd.read_csv('data\order.csv')
 df['date'] = pd.to_datetime(df.date)
@@ -46,6 +47,9 @@ def totalMonth():
     df4 = df[['total', 'month_year']]
     total_month = df4.groupby(['month_year'], as_index=False).sum(
     ).sort_values('month_year', ascending=True)
+    data1=total_month[['month_year','total']]
+    data1['month_year']=data1['month_year'].astype(str)
+    data1.to_json('total_month.json', orient='index')
     return total_month
 
 
