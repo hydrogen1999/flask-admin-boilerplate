@@ -13,7 +13,6 @@ from sklearn.svm import SVR
 from sklearn.ensemble import VotingRegressor
 import statsmodels.api as sm
 import json
-import matplotlib.pyplot as plt
 from pmdarima.arima import auto_arima
 
 df = pd.read_csv('data\order.csv')
